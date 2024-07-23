@@ -3,16 +3,94 @@ function buttonClicked() {
     alert('Button clicked!');
 }
 
----
+interface Props {
+	card: string;
+}
 
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Card Component</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
+const { card } = Astro.props;
+
+---
+<style>
+    .card {
+        position: relative;
+        width: 300px;
+        height: 400px;
+        background-color: #fff; /* Fondo de la tarjeta blanco */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        border-radius: 10px;
+        overflow: hidden;
+        text-align: center;
+        padding: 20px;
+        box-sizing: border-box;
+        color: #000;
+        transition: transform 0.3s ease; 
+    }
+    
+    .card:hover {
+        transform: scale(1.05); 
+    }
+    
+    .icon {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        font-size: 24px;
+        color: #e74c3c;
+    }
+    
+    .icon-circle {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        width: 40px;
+        height: 40px;
+        background-color: #3498db;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #fff;
+        font-size: 20px;
+    }
+    
+    .image-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 200px;
+        margin-top: 20px;
+    }
+    
+    .image-container img {
+        max-width: 100%;
+        max-height: 100%;
+        border-radius: 10px;
+    }
+    
+    .text {
+        margin: 20px 0;
+    }
+    
+    .button {
+        position: absolute;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        padding: 10px 20px;
+        background-color: #3498db;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+    
+    .button:hover {
+        background-color: #2980b9;
+    }
+</style>
+    
+
 <body>
     <div class="card">
         <div class="icon">
@@ -29,99 +107,5 @@ function buttonClicked() {
         </div>
         <button class="button" onclick="buttonClicked()">Click Me</button>
     </div>
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-    <script src="script.js"></script>
 </body>
-</html>
-
-<style>
-body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background-color: #000; /* Fondo del body negro */
-    color: #fff; /* Texto blanco */
-}
-
-.card {
-    position: relative;
-    width: 300px;
-    height: 400px;
-    background-color: #fff; /* Fondo de la tarjeta blanco */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
-    overflow: hidden;
-    text-align: center;
-    padding: 20px;
-    box-sizing: border-box;
-    color: #000; /* Texto de la tarjeta negro */
-    transition: transform 0.3s ease; /* Transición para el movimiento */
-}
-
-.card:hover {
-    transform: scale(1.05); /* Escala la tarjeta al pasar el ratón */
-}
-
-.icon {
-    position: absolute;
-    top: 20px;
-    left: 20px;
-    font-size: 24px;
-    color: #e74c3c;
-}
-
-.icon-circle {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    width: 40px;
-    height: 40px;
-    background-color: #3498db;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #fff;
-    font-size: 20px;
-}
-
-.image-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 200px;
-    margin-top: 20px;
-}
-
-.image-container img {
-    max-width: 100%;
-    max-height: 100%;
-    border-radius: 10px;
-}
-
-.text {
-    margin: 20px 0;
-}
-
-.button {
-    position: absolute;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    padding: 10px 20px;
-    background-color: #3498db;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.button:hover {
-    background-color: #2980b9;
-}
-</style>
 
